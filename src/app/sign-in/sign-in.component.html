@@ -1,0 +1,43 @@
+
+<body class="text-center d-flex align-center justify-content-center">
+
+<main class="form-signin">
+  <form class="container">
+    <img class="mb-4" src="https://to-do-cdn.microsoft.com/static-assets/c87265a87f887380a04cf21925a56539b29364b51ae53e089c3ee2b2180148c6/icons/logo.png" alt="" width="100">
+    <h1 class="h3 mb-3 fw-normal">TO-DO LIST</h1>
+
+<!--    <div class="row">-->
+<!--      <div class="form-floating col">-->
+<!--        <input type="text" class="form-control" id="thing-to-do" placeholder="Something to do">-->
+<!--        <label for="floatingInput">Something to do</label>-->
+<!--      </div>-->
+
+<!--      <div class="form-floating col ">-->
+<!--        <input type="date" class="form-control" id="thing-deadline" placeholder="01/01/2021">-->
+<!--        <label for="floatingPassword">Deadline</label>-->
+<!--      </div>-->
+
+<!--      <div class="checkbox mt-2 col">-->
+<!--        <label>-->
+<!--          <input type="checkbox" value="done"> Done-->
+<!--        </label>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div *ngFor="let n of numSequence(10)" class="input-group mb-3">
+      <div class="input-group-text">
+        <input class="form-check-input mt-0" type="checkbox" id="thing-deadline" value="" aria-label="Deadline">
+      </div>
+      <input type="text" class="form-control" id="thing-to-do" placeholder="Something to do" aria-label="Something to do">
+      <span class="input-group-text">-</span>
+      <input type="date" class="form-control" id="thing-deadline" placeholder="thing-deadline" aria-label="01/01/2021">
+    </div>
+
+    <button class="w-20 mt-3 btn btn-lg btn-primary" type="submit">Add To-Do</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  </form>
+</main>
+
+
+
+</body>
