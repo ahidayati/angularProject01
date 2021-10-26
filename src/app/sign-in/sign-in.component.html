@@ -24,13 +24,31 @@
 <!--      </div>-->
 <!--    </div>-->
 
-    <div *ngFor="let n of numSequence(10)" class="input-group mb-3">
+    <div *ngFor="let n of toDoList" class="input-group mb-3" formArrayName="form">
+<!-- <div *ngFor="let n of numSequence(5)" class="input-group mb-3">-->
       <div class="input-group-text">
-        <input class="form-check-input mt-0" type="checkbox" id="thing-deadline" value="" aria-label="Deadline">
+        <input
+          [formControlName]="'finished'"
+          class="form-check-input mt-0"
+          type="checkbox"
+          id="thing-checkbox"
+          value="">
       </div>
-      <input type="text" class="form-control" id="thing-to-do" placeholder="Something to do" aria-label="Something to do">
+      <input
+        [formControlName]="'label'"
+        type="text"
+        class="form-control"
+        id="thing-to-do"
+        placeholder="Something to do"
+        aria-label="Something to do">
       <span class="input-group-text">-</span>
-      <input type="date" class="form-control" id="thing-deadline" placeholder="thing-deadline" aria-label="01/01/2021">
+      <input
+        [formControlName]="'at'"
+        type="date"
+        class="form-control"
+        id="thing-deadline"
+        placeholder="thing-deadline"
+        aria-label="01/01/2021">
     </div>
 
     <button class="w-20 mt-3 btn btn-lg btn-primary" type="submit">Add To-Do</button>
@@ -41,3 +59,6 @@
 
 
 </body>
+<!--[formControlName]="'finished'"-->
+<!--[formControlName]="'label'"-->
+<!--[formControlName]="'at'"-->
