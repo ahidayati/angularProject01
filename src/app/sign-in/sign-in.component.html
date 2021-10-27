@@ -2,7 +2,7 @@
 <body class="text-center d-flex align-center justify-content-center">
 
 <main class="form-signin">
-  <form class="container">
+  <form class="container" (submit)="saveToDo()">
     <img class="mb-4" src="https://to-do-cdn.microsoft.com/static-assets/c87265a87f887380a04cf21925a56539b29364b51ae53e089c3ee2b2180148c6/icons/logo.png" alt="" width="100">
     <h1 class="h3 mb-3 fw-normal">TO-DO LIST</h1>
 
@@ -24,18 +24,18 @@
 <!--      </div>-->
 <!--    </div>-->
 
-    <div *ngFor="let n of toDoList" class="input-group mb-3" formArrayName="form">
+    <div *ngFor="let x of form.controls, let i = index" class="input-group mb-3">
 <!-- <div *ngFor="let n of numSequence(5)" class="input-group mb-3">-->
       <div class="input-group-text">
         <input
-          [formControlName]="'finished'"
+          [formControl]="getControl(x, 'finished')"
           class="form-check-input mt-0"
           type="checkbox"
           id="thing-checkbox"
           value="">
       </div>
       <input
-        [formControlName]="'label'"
+        [formControl]="getControl(x, 'label')"
         type="text"
         class="form-control"
         id="thing-to-do"
@@ -43,15 +43,18 @@
         aria-label="Something to do">
       <span class="input-group-text">-</span>
       <input
-        [formControlName]="'at'"
+        [formControl]="getControl(x, 'at')"
         type="date"
         class="form-control"
         id="thing-deadline"
         placeholder="thing-deadline"
-        aria-label="01/01/2021">
+        aria-label="26/10/2021"
+        >
+      <button class="btn btn-outline-danger" title= "Delete" (click)="deleteToDo(i)">x</button>
     </div>
 
-    <button class="w-20 mt-3 btn btn-lg btn-primary" type="submit">Add To-Do</button>
+    <button class="w-50 mt-3 btn btn-lg btn-primary" type="submit" (click)="addToDo()">Add To-Do</button><br>
+    <button class="w-50 mt-3 btn btn-lg btn-outline-primary" (click)="saveToDo()">Save To-Do List</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   </form>
 </main>
@@ -62,3 +65,4 @@
 <!--[formControlName]="'finished'"-->
 <!--[formControlName]="'label'"-->
 <!--[formControlName]="'at'"-->
+<!--[value]="{{ 01/01/2021 | date}}"-->
